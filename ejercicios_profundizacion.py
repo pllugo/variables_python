@@ -11,7 +11,7 @@ Programa creado para que practiquen los conocimietos
 adquiridos durante la semana
 '''
 
-__author__ = "Inove Coding School"
+__author__ = "Pedro Lugo"
 __email__ = "alumnos@inove.com.ar"
 __version__ = "1.3"
 
@@ -34,6 +34,28 @@ def ej1():
       ej: La suma entre 4.2 y 6.5 es 10.7
 
     '''
+    #Se ingresa los numeros
+
+    print('Ingrese el primer número:')
+    numero_1 = float(input())
+
+    print('Ingrese el segundo número:')
+    numero_2 = float(input())
+
+    #Se realizan las operaciones matematicas
+
+    suma = numero_1 + numero_2 # Suma de dos números
+    resta = numero_1 - numero_2 # Resta de dos números
+    multiplica = numero_1 * numero_2 # Multiplicación de dos números
+    divide = numero_1 / numero_2 # división de dos números
+    expo = numero_1 ** numero_2 # exponente/potencia de un número
+
+    #Aqui se realiza la impresión de las operaciones matematicas
+    print("La suma entre", numero_1, "y", numero_2, "es", suma)
+    print("La resta entre", numero_1, "y", numero_2, "es", resta)
+    print("La multiplicación entre", numero_1, "y", numero_2, "es", multiplica)
+    print("La división entre", numero_1, "y", numero_2, "es", divide)
+    print("El exponente o potencia entre", numero_1, "a la", numero_2, "es",expo)
 
 
 def ej2():
@@ -55,6 +77,22 @@ def ej2():
       entienda de que se está hablando.
 
     '''
+
+    print('Ingrese su nombre/s:')
+    nombre = str(input())
+    print('Ingrese su apellido/s:')
+    apellido = str(input())
+    print('Ingrese su DNI:')
+    dni = int(input()) #Este número a ingresar es un entero
+    print('Ingrese su edad:')
+    edad = int(input()) #Este número a ingresar es un entero
+    print('Ingrese su altura (m):') #Este numero a ingresar es un decimal
+    altura = float(input())
+    print("Nombre Completo:", nombre + " " + apellido, ",","DNI:", dni)
+    print("Nombre Completo:", nombre + " " + apellido, ",","edad:", edad, ",", "altura", altura,"m")
+
+
+
 
 
 def ej3():
@@ -89,6 +127,38 @@ def ej3():
     Cualquier duda con el método split pueden consultarla por el campus
 
     '''
+    # Como algunos nombres tienen 2 apellidos, se hace necesario preguntar si el nombre del padre y de la madre poseen 2 apellidos
+    print("El nombre del padre y de la madre poseen 2 apellidos?, Responda con un Si o con No")
+    # Agrego el condicional if 
+    condicion = str(input())
+    if condicion == "Si":
+      # Aqui tanto el padre como la madre poseen 2 apellidos
+      print("Ingrese el nombre completo del padre")
+      nombre_padre = str(input())
+      apellidos_padre = nombre_padre.split()
+      print("Ingrese el nombre completo de la madre")
+      nombre_madre = str(input())
+      apellidos_madre = nombre_madre.split() #Almaceno en una lista con split
+      print("Ingrese el nombre del hijo")
+      nombre_hijo = str(input())
+      nombre_completo_h = nombre_hijo + " " + apellidos_padre[2] + " " + apellidos_madre[2] #extraigo los apellidos en la posición [2] de cada lista con el split
+      print("El nombre completo del hijo es:", nombre_completo_h)
+    else:
+      # Aqui tanto el padre como la madre poseen 1 apellido
+      print("Ingrese el nombre completo del padre")
+      nombre_padre = str(input())
+      apellidos_padre = nombre_padre.split()
+      print("Ingrese el nombre completo de la madre")
+      nombre_madre = str(input())
+      apellidos_madre = nombre_madre.split()
+      print("Ingrese el nombre del hijo")
+      nombre_hijo = str(input())
+      nombre_completo_h = nombre_hijo + " " + apellidos_padre[1] + " " + apellidos_madre[1]
+      print("El nombre completo del hijo es:", nombre_completo_h)
+
+    
+
+
 
 
 def ej4():
@@ -123,8 +193,30 @@ def ej4():
 
     Cualquier duda con el método split pueden consultarla por el campus
     '''
+    #Se coloca end="" al final del print para que el cursor se quede en la misma linea y el usuario ingrese el nombre
+    print("Ingrese el nombre de la persona 1:", end="")
+    nombre_1 = str(input())
+    print("Ingrese el apellido de la persona 1:", end="")
+    apellido_1 = str(input())
+    #Luego se suman los dos string para formar el nombre completo de la persona 1
+    persona_1 = nombre_1 + " " + apellido_1
+    print("El nombre completo de la persona 1 es:", persona_1)
+    print("Ingrese el nombre completo (Nombre y Apellido) de la persona 2")
+    persona_2 = str(input())
+    #Con el uso de split() el string forma una lista o diccionario donde se le puede extraer el valor deseado, en éste caso el apellido
+    apellido_2 = persona_2.split()
+    #El apellido de la persona se encuentra en la posición N°=2
+    apellido_persona_2 = apellido_2[1]
+    condicion = apellido_persona_2 in persona_1
+    # Se agrega un condicional para saber si el apellido de la persona 2 se encuentra en la variable persona_1
+    if condicion == True:
+      print("La persona 1 es pariente de la persona 2")
+    else:
+      print("La persona 1 no es pariente de la persona 2")
 
 
+
+    
 def ej5():
     # Ejercicios de práctica con cadenas
     print('Ahora si! buena suerte!')
@@ -149,6 +241,11 @@ def ej5():
 
     Cualquier duda con estos métodos pueden consultarla por el campus
     '''
+    print("Ingrese su nombre completo")
+    nombre = str(input())
+    print(nombre.lower()) #El nombre se imprime todo en minuscula
+    print(nombre.upper()) #El nombre se imprime todo en mayuscula
+    print(nombre.capitalize()) #El nombre se imprime solo mayuscula la primera letra
 
 
 if __name__ == '__main__':
